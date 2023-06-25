@@ -28,7 +28,7 @@ jobs:
         git config --local user.email "vforval86@gmail.com"
         git config --local user.name "Vallek"
         git commit -m 'deploy'
-        git config --global --add safe.directory /github/workspace/dist
+        git config --global --add safe.directory /github/workspace
         
     - name: Force push to destination branch
       uses: ad-m/github-push-action@master
