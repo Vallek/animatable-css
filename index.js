@@ -63,7 +63,7 @@ async function fetchF() {
 							animTitles = [...new Set(animTitles)];
             } 
             // Exceptions
-            // Skip specs about new properties with repeated old ones
+            // Skip repeated old ones from specs about new properties 
             else if (
               !el.newValues &&
               !el.name.includes('-webkit')
