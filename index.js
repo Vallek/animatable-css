@@ -100,7 +100,7 @@ app.use(cors());
 const fileName = './dist/index.html';
 const stream = fs.createWriteStream(fileName);
 
-stream.on('open', async function() {
+stream.once('open', async function() {
 	await fetchF();
 	fetchF().then(() => {
 		// Animatable
@@ -233,7 +233,7 @@ stream.on('open', async function() {
 </body>
 </html>
 	`;
-	stream.write(buildHtml);
+	stream.end(buildHtml);
 	});
 });
 
