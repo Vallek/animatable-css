@@ -17,4 +17,14 @@ jobs:
       with:
         node-version: '18'
         cache: 'npm'
+    - run: npm ci
     - run: npm run build
+
+    - name: Init new repo in dist folder and commit generated files
+      run: |
+        cd dist/
+        git init
+        git add -A
+        git config --local user.email "vforval86@gmail.com"
+        git config --local user.name "Vallek"
+        git commit -m 'deploy'
