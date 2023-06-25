@@ -95,8 +95,11 @@ async function fetchF() {
 // Server
 let app = express();
 app.use(cors());
+app.use(express.static(__dirname + "/dist/"));
+// For local live server
+// app.listen(process.env.PORT || 3000);
 
-// Build static page file
+// Static page file path
 const fileName = './dist/index.html';
 const stream = fs.createWriteStream(fileName);
 
@@ -149,7 +152,7 @@ stream.once('open', async function() {
 		let section = `<section>${html}${list}</section>`;
 		return section;
 	}).join('');
-
+	// HTML with variables from above
 	let buildHtml = `
 	<!DOCTYPE html>
 	<html>
@@ -233,10 +236,7 @@ stream.once('open', async function() {
 </body>
 </html>
 	`;
+	// Build it
 	stream.end(buildHtml);
 	});
 });
-
-// Server 
-// app.listen(process.env.PORT || 3000);
-app.use(express.static(__dirname + "/dist/"));
