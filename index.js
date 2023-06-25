@@ -238,7 +238,5 @@ stream.once('open', async function() {
 });
 
 // Server 
-app.listen(process.env.PORT || 3000);
+// app.listen(process.env.PORT || 3000);
 app.use(express.static(__dirname + "/dist/"));
-// Export the Express API
-module.exports = app;
