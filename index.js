@@ -2,6 +2,7 @@ const fetch = require('node-fetch');
 const fs = require('node:fs');
 const express = require('express');
 const cors = require('cors');
+// Path may seems not used here but it is)
 const path = require('path');
 const date = new Date();
 
@@ -174,7 +175,7 @@ stream.once('open', async function() {
 			<p>This page contains lists of animatable and not animatable CSS properties. There <a href="https://web.archive.org/web/20230131022559/https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties">was</a> a list like this on MDN but it was removed (see <a href="https://github.com/mdn/content/issues/27042">discussion here</a>), so I decided to make one) I'd like to thank @yarusome and @Josh-Cena for replying and providing a link to the W3C api.</p>
 			<p>This page is <em>not</em> affiliated with W3C or MDN. However it uses W3C <a href="https://github.com/w3c/webref">open API</a> to get all the data from specifications.</p>
 			<p>Some values may differ between W3C api and any other sources (including MDN). Always check different sources and test it yourself!</p>
-			<p>The point of this page is to be fully automated without need to manual edits. It updates once a day. But if you found a problem please create an issue on <a href="https://github.com/Vallek/animatable-css">github</a>.</p>
+			<p>The point of this page is to be fully automated without need for manual edits. It updates once a day. But if you found a problem please create an issue on <a href="https://github.com/Vallek/animatable-css">github</a>.</p>
 			<p><span>created by: <a href="https://github.com/Vallek">Vallek</a></span></p>
 		</div>
 		<h2>Syntax, how to use:</h2>
@@ -237,7 +238,7 @@ stream.once('open', async function() {
 	});
 });
 
-// Static server
+// Static server THIS MUST BE AT THE END
 app.use(express.static(__dirname + "/dist/"));
 // For local live server
 // app.listen(process.env.PORT || 3000);
