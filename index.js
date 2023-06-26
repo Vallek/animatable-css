@@ -95,9 +95,6 @@ async function fetchF() {
 // Server
 let app = express();
 app.use(cors());
-app.use(express.static(__dirname + "/dist/"));
-// For local live server
-// app.listen(process.env.PORT || 3000);
 
 // Static page file path
 const fileName = './dist/index.html';
@@ -239,3 +236,8 @@ stream.once('open', async function() {
 	stream.end(buildHtml);
 	});
 });
+
+// Static server
+app.use(express.static(__dirname + "/dist/"));
+// For local live server
+// app.listen(process.env.PORT || 3000);
