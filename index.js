@@ -2,7 +2,6 @@ const fetch = require('node-fetch');
 const fs = require('node:fs');
 const express = require('express');
 const cors = require('cors');
-// Path may seems not used here but it is)
 const path = require('path');
 const date = new Date();
 
