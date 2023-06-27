@@ -174,7 +174,7 @@ stream.once('open', async function() {
 			<p>This page contains lists of animatable and not animatable CSS properties. There <a href="https://web.archive.org/web/20230131022559/https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties">was</a> a list like this on MDN but it was removed (see <a href="https://github.com/mdn/content/issues/27042">discussion here</a>), so I decided to make one) I'd like to thank @yarusome and @Josh-Cena for replying and providing a link to the W3C api.</p>
 			<p>This page is <em>not</em> affiliated with W3C or MDN. However it uses W3C <a href="https://github.com/w3c/webref">open API</a> to get all the data from specifications.</p>
 			<p>Some values may differ between W3C api and any other sources (including MDN and specs themselves). There are also multiple <a href="https://www.w3.org/TR/CSS/#css-levels">Levels</a> of same specs where same properties also may differ. Always check different sources and test it yourself!</p>
-			<p>The point of this page is to be fully automated without need for manual edits. It updates once a day. But if you found a problem please create an issue on <a href="https://github.com/Vallek/animatable-css">github</a>.</p>
+			<p>The point of this page is to be fully automated without need for manual edits. It updates once a day. If you don't see any properties (this means build failed) or if you found any other problem please create an issue on <a href="https://github.com/Vallek/animatable-css">github</a>.</p>
 			<p><span>created by: <a href="https://github.com/Vallek">Vallek</a></span></p>
 		</div>
 		<h2>Syntax, how to use:</h2>
