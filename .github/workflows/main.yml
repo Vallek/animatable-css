@@ -1,6 +1,9 @@
 name: Deploy to GitHub pages
 on:
   push:
+    paths-ignore:
+      - 'dist/index.html'
+      - 'README.md'
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
