@@ -1,7 +1,7 @@
 name: Deploy to GitHub pages
 on:
   schedule:
-    - cron: '0 9 * * *'
+    - cron: '0 9,21 * * *'
   push:
     paths-ignore:
       - 'dist/index.html'
