@@ -1,5 +1,7 @@
 name: Deploy to GitHub pages
 on:
+  schedule:
+    - cron: '0 9 * * *'
   push:
     paths-ignore:
       - 'dist/index.html'
@@ -7,8 +9,6 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
-  schedule:
-    - cron: '0 9 * * *'
 
 jobs:
   build:
@@ -30,10 +30,10 @@ jobs:
         cd dist/
         git init
         git add -A
+        git config --global --add safe.directory /github/workspace
         git config --local user.email "vforval86@gmail.com"
         git config --local user.name "Vallek"
         git commit -m 'deploy'
-        git config --global --add safe.directory /github/workspace
         
     - name: Force push to destination branch
       uses: ad-m/github-push-action@master
