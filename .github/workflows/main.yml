@@ -31,8 +31,8 @@ jobs:
         git init
         git add -A
         git config --global --add safe.directory /github/workspace
-        git config --local user.email "vforval86@gmail.com"
-        git config --local user.name "Vallek"
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
         git commit -m 'deploy'
         
     - name: Force push to destination branch
