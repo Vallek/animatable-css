@@ -14,4 +14,4 @@ I didn't want to put too much strain on API or client side. So I decided to gene
 
 If you have any suggestions please contact me or make a Pull Request.
 
-[How to use](https://vallek.github.io/webdevtips/build-static-node-github-actions) this method of building page yourself.
+[How to use](https://vallek.github.io/webdevtips/en/build-static-node-github-actions) this method of building page yourself.
