@@ -1,13 +1,15 @@
 .page {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 	margin: 0;
-	font-family: sans-serif;
 	padding: 1em 0;
+	font-family: sans-serif;
 }
 
 .page__main {
 	box-sizing: border-box;
 	width: min(100% - 2rem, 130ch);
-	margin: 0 auto;
 	padding: 2em;
 	border-radius: 14px;
 	box-shadow: 2px 4px 17px -5px #b3b3b3;
@@ -122,6 +124,29 @@ code {
 .property__type {
 	margin-top: 0.5em;
 	margin-bottom: 0;
+}
+
+/* To top */
+.to-top {
+	display: flex;
+	align-items: end;
+	align-self: stretch;
+	padding: 1em;
+}
+
+.to-top__link {
+	position: sticky;
+	bottom: 0.3em;
+	font-size: 3rem;
+	text-decoration: none;
+}
+
+@media screen and (max-width: 1255px) {
+	.to-top {
+		position: fixed;
+		right: 0;
+		bottom: 0.3em;
+	}
 }
 
 /* Footer */

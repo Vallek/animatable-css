@@ -231,6 +231,9 @@ stream.once('open', async function() {
 				<p>CSS Icon from <a href="https://commons.wikimedia.org/wiki/File:CSS3_logo_and_wordmark.svg">Wiki under Creative Commons</a></p>
 			</section>
 		</main>
+		<div class="to-top">
+			<a class="to-top__link" href="#" aria-label="Go to top" title="Go to top">&#9195;</a>
+		</div>
 	</body>
 	</html>
 		`;
