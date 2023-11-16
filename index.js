@@ -100,6 +100,7 @@ app.use(cors());
 const fileName = './dist/index.html';
 const stream = fs.createWriteStream(fileName);
 
+// Build the page
 stream.once('open', async function() {
 	await fetchF();
 	setTimeout(() => {
@@ -233,7 +234,6 @@ stream.once('open', async function() {
 	</body>
 	</html>
 		`;
-		// Build it
 		stream.end(buildHtml);
 		});
 	}, 1000);
