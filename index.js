@@ -112,7 +112,7 @@ stream.once('open', async function() {
 				let propName = el.name;
 				if (el.title == title) {
 					let item = `<li class="property"><a class="property__link" href="${el.url + '#propdef-' + el.name}">${propName}</a>
-					${el.animationType !== undefined ? `<p class="property__type">Animation type: ${el.animationType}</p>` : `<p class="property__type">${el.animatable.replace(/[<,>]/g, '')}</p>`}</li>`;
+					${el.animationType !== undefined ? `<p class="property__type">Animation type: ${el.animationType.replace(/[<,>]/g, '')}</p>` : `<p class="property__type">${el.animatable.replace(/[<,>]/g, '')}</p>`}</li>`;
 					return item;
 				}
 			}).join('');
