@@ -152,7 +152,8 @@ stream.once('open', async function() {
 			return section;
 		}).join('');
 		// HTML with variables from above
-		let buildHtml = `
+		const html = String.raw;
+		let buildHtml = html`
 		<!DOCTYPE html>
 		<html>
 		<head>
