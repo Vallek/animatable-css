@@ -88,10 +88,16 @@ em {
 	column-gap: 1em;
 }
 
-@media screen and (max-width: 800px) {
-	.lists {
-		column-count: initial;
-	}
+@media screen and (min-width: 601px) and (max-width: 900px) {
+  .lists {
+    column-count: 2;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .lists {
+    column-count: 1;
+  }
 }
 
 h3 {
