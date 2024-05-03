@@ -295,4 +295,4 @@ stream.once('open', async function() {
 // Static server THIS MUST BE AT THE END
 app.use(express.static(__dirname + "/dist/"));
 // For local live server
-app.listen(process.env.PORT || 3000);
+// app.listen(process.env.PORT || 3000);
