@@ -256,7 +256,7 @@ stream.once('open', async function() {
 			<section class="page__section">
 				<h2 id="not-full-anim"><a href="#anim">Not Fully Animatable CSS properties</a></h2>
 				<div class="section__notes">
-					<p>This is a list of properties that are technically animatable but have no real transition and go from start to end with swap at 50%.</p>
+					<p>This is a list of properties with <code>discrete</code> animation type. They are technically animatable but have no real transition and go from start to end with swap at 50%.</p>
 				</div>
 				<div class="lists anim">${notFullAnimHtml}</div>
 			</section>
@@ -270,7 +270,7 @@ stream.once('open', async function() {
 			<section class="page__section">
 				<h2 id="other"><a href="#other">Other cases</a></h2>
 				<div class="section__notes">
-					<p>This is a list of everything else from api that didn't fit main lists. It happens if there is no animation type so api returns <code>undefined</code>. For example <code>z-index</code>. It has no animation type in specs. But in reality (and you can see it on MDN) it's <code>an integer</code> which is same as <code>discrete</code>.
+					<p>This is a list of everything else from api that didn't fit main lists. It happens if there is no animation type so api returns <code>undefined</code>. For example <code>z-index</code>. It has no animation type in specs. But in reality it's <code>discrete</code> (also called<code>an integer</code> on MDN).
 					<p>There are also some other properties that are duplicates from different specs or with -webkit prefix that already are in main lists. They are filtered out automatically. If you noticed something is missing please create an issue on <a href="https://github.com/Vallek/animatable-css">github</a>.</p>
 				</div>
 				<div class="lists other">${otherHtml}</div>
