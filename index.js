@@ -141,8 +141,7 @@ stream.once('open', async function() {
 			let item = notFullAnim.map(el => {
 				let propName = el.name;
 				if (el.title == title) {
-					let item = `<li class="property"><a class="property__link" href="${el.url + '#propdef-' + el.name}">${propName}</a>
-					${el.animationType !== undefined ? `<p class="property__type">Animation type: ${el.animationType.replace(/[<,>]/g, '')}</p>` : `<p class="property__type">${el.animatable.replace(/[<,>]/g, '')}</p>`}</li>`;
+					let item = `<li class="property"><a class="property__link" href="${el.url + '#propdef-' + el.name}">${propName}</a></li>`;
 					return item;
 				}
 			}).join('');
@@ -250,7 +249,7 @@ stream.once('open', async function() {
 				<div class="section__notes">
 					<p>This is a list of properties that can have actual gradual transition from one state to another.</p>
 					<p>If it says "see §" as animation type value just click on property link. You will find an anchor link to the specific part of spec there.</p>
-					<p>If it says "see individual properties" you can find them close to the shorthand or once again in specs following property link. Some of those could actually be <a href="#not-full-anim">not fully animatable</a></p>
+					<p>If it says "see individual properties" you can find them close to the shorthand or once again in specs following property link. Some of those could actually be <a href="#not-full-anim">not fully animatable.</a></p>
 				</div>
 				<div class="lists anim">${animHtml}</div>
 			</section>
@@ -289,7 +288,7 @@ stream.once('open', async function() {
 		`;
 		stream.end(buildHtml);
 		});
-	}, 1000);
+	}, 3000);
 	
 });
 
