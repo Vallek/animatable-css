@@ -8,10 +8,12 @@ const date = new Date();
 // Arrays to store api data
 let specsAr = [];
 let anim = [];
+let notFullAnim = [];
 let notAnim = [];
 let other = [];
 let notAnimTitles = [];
 let animTitles = [];
+let notFullAnimTitles = [];
 let otherTitles = [];
 
 // Get data from api
@@ -49,12 +51,25 @@ async function fetchF() {
 							notAnimTitles.push(title);
 							notAnimTitles = [...new Set(notAnimTitles)];
             }
+						// Not Fully Animatable
+						else if (
+              el.animationType === 'discrete'
+            ) {
+							el.title = title;	
+							el.url = spec.url;
+              notFullAnim.push(el);
+							notFullAnimTitles.push(title);
+							notFullAnimTitles = [...new Set(notFullAnimTitles)];
+            } 
             // Animatable
             else if (
-              el.animationType !== undefined ||
-              el.animatable !== undefined ||
-              el.animatable == 'yes' ||
-              el.animatable == 'Yes'
+							el.animationType === 'by computed value' ||
+							el.animationType === 'by computed value type' ||
+							el.animationType === 'repeatable list' ||
+							el.animationType !== undefined ||
+							el.animatable !== undefined ||
+							el.animatable == 'yes' ||
+							el.animatable == 'Yes'
             ) {
 							el.title = title;	
 							el.url = spec.url;
@@ -109,6 +124,21 @@ stream.once('open', async function() {
 		let animHtml = animTitles.map(el => {
 			let title = el;
 			let item = anim.map(el => {
+				let propName = el.name;
+				if (el.title == title) {
+					let item = `<li class="property"><a class="property__link" href="${el.url + '#propdef-' + el.name}">${propName}</a>
+					${el.animationType !== undefined ? `<p class="property__type">Animation type: ${el.animationType.replace(/[<,>]/g, '')}</p>` : `<p class="property__type">${el.animatable.replace(/[<,>]/g, '')}</p>`}</li>`;
+					return item;
+				}
+			}).join('');
+			let list = `<ul>${item}</ul>`;
+			let html = `<h3>${title}</h3>`;
+			let section = `<section>${html}${list}</section>`;
+			return section;
+		}).join('');
+		let notFullAnimHtml = notFullAnimTitles.map(el => {
+			let title = el;
+			let item = notFullAnim.map(el => {
 				let propName = el.name;
 				if (el.title == title) {
 					let item = `<li class="property"><a class="property__link" href="${el.url + '#propdef-' + el.name}">${propName}</a>
@@ -205,6 +235,9 @@ stream.once('open', async function() {
 						<a href="#anim">Animatable CSS properties</a>
 					</li>
 					<li>
+						<a href="#not-full-anim">Not Fully Animatable CSS properties</a>
+					</li>
+					<li>
 						<a href="#not-anim">Not animatable CSS properties</a>
 					</li>
 					<li>
@@ -215,10 +248,18 @@ stream.once('open', async function() {
 			<section class="page__section">
 				<h2 id="anim"><a href="#anim">Animatable CSS properties</a></h2>
 				<div class="section__notes">
+					<p>This is a list of properties that can have actual gradual transition from one state to another.</p>
 					<p>If it says "see §" as animation type value just click on property link. You will find an anchor link to the specific part of spec there.</p>
-					<p>If it says "see individual properties" you can find them close to the shorthand or once again in specs following property link.</p>
+					<p>If it says "see individual properties" you can find them close to the shorthand or once again in specs following property link. Some of those could actually be <a href="#not-full-anim">not fully animatable</a></p>
 				</div>
 				<div class="lists anim">${animHtml}</div>
+			</section>
+			<section class="page__section">
+				<h2 id="not-full-anim"><a href="#anim">Not Fully Animatable CSS properties</a></h2>
+				<div class="section__notes">
+					<p>This is a list of properties that are technically animatable but have no real transition and go from start to end with swap at 50%.</p>
+				</div>
+				<div class="lists anim">${notFullAnimHtml}</div>
 			</section>
 			<section class="page__section">
 				<h2 id="not-anim"><a href="#not-anim">Not animatable CSS properties</a></h2>
@@ -230,7 +271,7 @@ stream.once('open', async function() {
 			<section class="page__section">
 				<h2 id="other"><a href="#other">Other cases</a></h2>
 				<div class="section__notes">
-					<p>This is a list of everything else from api that didn't fit main lists. It happens if there is no animation type so api returns <code>undefined</code>. For example <code>z-index</code>. It has no animation type in specs. And yet on MDN it has <code>an integer</code> which is same as <code>discrete</code>. Meaning it has no real transition but still go from start to end with swap at 50%.</p>
+					<p>This is a list of everything else from api that didn't fit main lists. It happens if there is no animation type so api returns <code>undefined</code>. For example <code>z-index</code>. It has no animation type in specs. But in reality (and you can see it on MDN) it's <code>an integer</code> which is same as <code>discrete</code>.
 					<p>There are also some other properties that are duplicates from different specs or with -webkit prefix that already are in main lists. They are filtered out automatically. If you noticed something is missing please create an issue on <a href="https://github.com/Vallek/animatable-css">github</a>.</p>
 				</div>
 				<div class="lists other">${otherHtml}</div>
@@ -255,4 +296,4 @@ stream.once('open', async function() {
 // Static server THIS MUST BE AT THE END
 app.use(express.static(__dirname + "/dist/"));
 // For local live server
-// app.listen(process.env.PORT || 3000);
+app.listen(process.env.PORT || 3000);
