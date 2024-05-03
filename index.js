@@ -121,65 +121,66 @@ stream.once('open', async function() {
 	setTimeout(() => {
 		fetchF().then(() => {
 			// Animatable
-		let animHtml = animTitles.map(el => {
-			let title = el;
-			let item = anim.map(el => {
-				let propName = el.name;
-				if (el.title == title) {
-					let item = `<li class="property"><a class="property__link" href="${el.url + '#propdef-' + el.name}">${propName}</a>
-					${el.animationType !== undefined ? `<p class="property__type">Animation type: ${el.animationType.replace(/[<,>]/g, '')}</p>` : `<p class="property__type">${el.animatable.replace(/[<,>]/g, '')}</p>`}</li>`;
-					return item;
-				}
+			let animHtml = animTitles.map(el => {
+				let title = el;
+				let item = anim.map(el => {
+					let propName = el.name;
+					if (el.title == title) {
+						let item = `<li class="property"><a class="property__link" href="${el.url + '#propdef-' + el.name}">${propName}</a>
+						${el.animationType !== undefined ? `<p class="property__type">Animation type: ${el.animationType.replace(/[<,>]/g, '')}</p>` : `<p class="property__type">${el.animatable.replace(/[<,>]/g, '')}</p>`}</li>`;
+						return item;
+					}
+				}).join('');
+				let list = `<ul>${item}</ul>`;
+				let html = `<h3>${title}</h3>`;
+				let section = `<section>${html}${list}</section>`;
+				return section;
 			}).join('');
-			let list = `<ul>${item}</ul>`;
-			let html = `<h3>${title}</h3>`;
-			let section = `<section>${html}${list}</section>`;
-			return section;
-		}).join('');
-		let notFullAnimHtml = notFullAnimTitles.map(el => {
-			let title = el;
-			let item = notFullAnim.map(el => {
-				let propName = el.name;
-				if (el.title == title) {
-					let item = `<li class="property"><a class="property__link" href="${el.url + '#propdef-' + el.name}">${propName}</a></li>`;
-					return item;
-				}
+			// Not fully animatable
+			let notFullAnimHtml = notFullAnimTitles.map(el => {
+				let title = el;
+				let item = notFullAnim.map(el => {
+					let propName = el.name;
+					if (el.title == title) {
+						let item = `<li class="property"><a class="property__link" href="${el.url + '#propdef-' + el.name}">${propName}</a></li>`;
+						return item;
+					}
+				}).join('');
+				let list = `<ul>${item}</ul>`;
+				let html = `<h3>${title}</h3>`;
+				let section = `<section>${html}${list}</section>`;
+				return section;
 			}).join('');
-			let list = `<ul>${item}</ul>`;
-			let html = `<h3>${title}</h3>`;
-			let section = `<section>${html}${list}</section>`;
-			return section;
-		}).join('');
-		// Not animatable
-		let notAnimHtml = notAnimTitles.map(el => {
-			let title = el;
-			let item = notAnim.map(el => {
-				let propName = el.name;
-				if (el.title == title) {
-					let item = `<li class="property"><a class="property__link" href="${el.url + '#propdef-' + el.name}">${propName}</a></li>`;
-					return item;
-				}
+			// Not animatable
+			let notAnimHtml = notAnimTitles.map(el => {
+				let title = el;
+				let item = notAnim.map(el => {
+					let propName = el.name;
+					if (el.title == title) {
+						let item = `<li class="property"><a class="property__link" href="${el.url + '#propdef-' + el.name}">${propName}</a></li>`;
+						return item;
+					}
+				}).join('');
+				let list = `<ul>${item}</ul>`;
+				let html = `<h3>${title}</h3>`;
+				let section = `<section>${html}${list}</section>`;
+				return section;
 			}).join('');
-			let list = `<ul>${item}</ul>`;
-			let html = `<h3>${title}</h3>`;
-			let section = `<section>${html}${list}</section>`;
-			return section;
-		}).join('');
-		// Exceptions
-		let otherHtml = otherTitles.map(el => {
-			let title = el;
-			let item = other.map(el => {
-				let propName = el.name;
-				if (el.title == title) {
-					let item = `<li class="property"><a class="property__link" href="${el.url + '#propdef-' + el.name}">${propName}</a></li>`;
-					return item;
-				}
+			// Exceptions
+			let otherHtml = otherTitles.map(el => {
+				let title = el;
+				let item = other.map(el => {
+					let propName = el.name;
+					if (el.title == title) {
+						let item = `<li class="property"><a class="property__link" href="${el.url + '#propdef-' + el.name}">${propName}</a></li>`;
+						return item;
+					}
+				}).join('');
+				let list = `<ul>${item}</ul>`;
+				let html = `<h3>${title}</h3>`;
+				let section = `<section>${html}${list}</section>`;
+				return section;
 			}).join('');
-			let list = `<ul>${item}</ul>`;
-			let html = `<h3>${title}</h3>`;
-			let section = `<section>${html}${list}</section>`;
-			return section;
-		}).join('');
 		// HTML with variables from above
 		const html = String.raw;
 		let buildHtml = html`
@@ -234,7 +235,7 @@ stream.once('open', async function() {
 						<a href="#anim">Animatable CSS properties</a>
 					</li>
 					<li>
-						<a href="#not-full-anim">Not Fully Animatable CSS properties</a>
+						<a href="#not-full-anim">Not fully animatable CSS properties</a>
 					</li>
 					<li>
 						<a href="#not-anim">Not animatable CSS properties</a>
