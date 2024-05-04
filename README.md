@@ -8,8 +8,6 @@ Some values may differ between W3C api and any other sources (including MDN and 
 
 The point of this page is to be fully automated without need for manual edits. It updates once a day. If you don't see any properties (this means build failed) or if you found any other problem please create an issue.
 
-Disclaimer: this is my first Node.js project)
-
 I didn't want to put too much strain on API or client side. So I decided to generate a static html once a day on timer. It's done with Github Actions.
 
 If you have any suggestions please contact me or make a Pull Request.
