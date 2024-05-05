@@ -28,6 +28,12 @@ h2 {
 	margin-bottom: 1em;
 }
 
+.page__section > h2 {
+	position: sticky;
+	top: 0;
+	background-color: white;
+}
+
 h2 > a {
 	position: relative;
 	color: #000;
