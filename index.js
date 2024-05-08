@@ -262,14 +262,14 @@ stream.once('open', async function() {
 				<div class="lists anim">${notFullAnimHtml}</div>
 			</section>
 			<section class="page__section">
-				<h2 id="not-anim"><a href="#not-anim">Not animatable CSS properties</a></h2>
+				<h2 id="not-anim"><a href="#not-full-anim">Not animatable CSS properties</a></h2>
 				<div class="section__notes">
 					<p>You can see a lot of animation/transition properties here. That's because they animate others but can't be animated themselves.</p>
 				</div>
 				<div class="lists non-anim">${notAnimHtml}</div>
 			</section>
 			<section class="page__section">
-				<h2 id="other"><a href="#other">Other cases</a></h2>
+				<h2 id="other"><a href="#not-anim">Other cases</a></h2>
 				<div class="section__notes">
 					<p>This is a list of everything else from api that didn't fit main lists. It happens if there is no animation type so api returns <code>undefined</code>. For example <code>z-index</code>. It has no animation type in specs. But in reality it's <code>discrete</code> (also called<code>an integer</code> on MDN).
 					<p>There are also some other properties that are duplicates from different specs or with -webkit prefix that already are in main lists. They are filtered out automatically. If you noticed something is missing please create an issue on <a href="https://github.com/Vallek/animatable-css">github</a>.</p>
