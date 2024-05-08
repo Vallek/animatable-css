@@ -245,8 +245,8 @@ stream.once('open', async function() {
 					</li>
 				</ol>
 			</section>
-			<section class="page__section">
-				<h2 id="anim"><a href="#anim">Animatable CSS properties</a></h2>
+			<section class="page__section" id="anim">
+				<h2><a href="#anim">Animatable CSS properties</a></h2>
 				<div class="section__notes">
 					<p>This is a list of properties that can have actual gradual transition from one state to another.</p>
 					<p>If it says "see §" as animation type value just click on property link. You will find an anchor link to the specific part of spec there.</p>
@@ -254,22 +254,22 @@ stream.once('open', async function() {
 				</div>
 				<div class="lists anim">${animHtml}</div>
 			</section>
-			<section class="page__section">
-				<h2 id="not-full-anim"><a href="#anim">Not Fully Animatable CSS properties</a></h2>
+			<section class="page__section" id="not-full-anim">
+				<h2><a href="#not-full-anim">Not Fully Animatable CSS properties</a></h2>
 				<div class="section__notes">
 					<p>This is a list of properties with <code>discrete</code> animation type. They are technically animatable but have no real transition and go from start to end with swap at 50%.</p>
 				</div>
 				<div class="lists anim">${notFullAnimHtml}</div>
 			</section>
-			<section class="page__section">
-				<h2 id="not-anim"><a href="#not-full-anim">Not animatable CSS properties</a></h2>
+			<section class="page__section" id="not-anim">
+				<h2><a href="#not-anim">Not animatable CSS properties</a></h2>
 				<div class="section__notes">
 					<p>You can see a lot of animation/transition properties here. That's because they animate others but can't be animated themselves.</p>
 				</div>
 				<div class="lists non-anim">${notAnimHtml}</div>
 			</section>
-			<section class="page__section">
-				<h2 id="other"><a href="#not-anim">Other cases</a></h2>
+			<section class="page__section" id="other">
+				<h2><a href="#other">Other cases</a></h2>
 				<div class="section__notes">
 					<p>This is a list of everything else from api that didn't fit main lists. It happens if there is no animation type so api returns <code>undefined</code>. For example <code>z-index</code>. It has no animation type in specs. But in reality it's <code>discrete</code> (also called<code>an integer</code> on MDN).
 					<p>There are also some other properties that are duplicates from different specs or with -webkit prefix that already are in main lists. They are filtered out automatically. If you noticed something is missing please create an issue on <a href="https://github.com/Vallek/animatable-css">github</a>.</p>
