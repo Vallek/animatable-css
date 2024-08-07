@@ -1,10 +1,17 @@
 .page {
+	--back-color: #ffffff;
+	--prime-color: initial;
+	--second-color: initial;
+	--accent-color: #000000;
+	--accent-color-2: #84cffa80;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 	margin: 0;
 	padding: 1em 0;
 	font-family: sans-serif;
+	color: var(--prime-color, revert);
+	background-color: var(--back-color);
 }
 
 .page__main {
@@ -20,6 +27,37 @@ h1 {
 	margin: 0;
 	margin-bottom: 0.7em;
 	text-align: center;
+}
+
+/* Lang */
+.header__footer {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.themes {
+	display: inline-flex;
+}
+
+.themes::after {
+	order: 2;
+	content: '/';
+	display: inline-block;
+	font-weight: bold;
+	margin: 0 0.5em;
+}
+
+.themes__text {
+	display: inline-block;
+}
+
+.themes__theme_light {
+	order: 1;
+}
+
+.themes__theme_dark {
+	order: 3;
 }
 
 h2 {
@@ -164,4 +202,38 @@ code {
 /* Footer */
 .footer {
 	text-align: center;
+}
+
+/* Dark Theme */
+.page.dark {
+	--back-color: #002B36;
+	--prime-color: #c3d5d9;
+	--second-color: #a0b2b5;
+	--accent-color: #2f93da;
+	--accent-color-2: #84cffa80;
+}
+
+.dark a {
+	color: var(--accent-color);
+}
+
+.dark .page__syntax,
+.dark h2 {
+	background-color: var(--back-color);
+}
+
+.dark code {
+	color: var(--back-color);
+}
+
+/* JS */
+.visually-hidden {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	left: 0;
 }

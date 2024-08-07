@@ -216,7 +216,14 @@ stream.once('open', async function() {
 				<p>This page is <em>not</em> affiliated with W3C or MDN. However it uses W3C <a href="https://github.com/w3c/webref">open API</a> to get all the data from specifications.</p>
 				<p>Some values may differ between W3C api and any other sources (including MDN and specs themselves). There are also multiple <a href="https://www.w3.org/TR/CSS/#css-levels">Levels</a> of same specs where same properties also may differ. Always check different sources and test it yourself!</p>
 				<p>The point of this page is to be fully automated without need for manual edits. It updates once a day. If you don't see any properties (this means build failed) or if you found any other problem please create an issue on <a href="https://github.com/Vallek/animatable-css">github</a>.</p>
-				<p><span>created by: <a href="https://github.com/Vallek">Vallek</a></span></p>
+				<div class="header__footer">
+					<span>created by: <a href="https://github.com/Vallek">Vallek</a></span>
+					<span class="themes">
+						<h2 class="themes__text visually-hidden">Change Color Theme</h2>
+						<a class="themes__theme themes__theme_light" href="#">Light Theme</a>
+						<a class="themes__theme themes__theme_dark" href="#">Dark Theme</a>
+					</span>
+				</div>
 			</div>
 			<h2>Syntax, how to use:</h2>
 			<blockquote class="page__syntax">
@@ -284,6 +291,43 @@ stream.once('open', async function() {
 		<div class="to-top">
 			<a class="to-top__link" href="#" aria-label="Go to top" title="Go to top">&#9195;</a>
 		</div>
+		<script>
+			const page = document.querySelector('.page');
+			const lightThemeLink = document.querySelector('.themes__theme_light');
+			const darkThemeLink = document.querySelector('.themes__theme_dark');
+			// Check if user set dark theme before
+			if (localStorage.getItem('vallek-animatable-css-theme') == 'dark') {
+				page.classList.add('dark');
+			}
+			// Check if user prefers dark theme
+			if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+				page.classList.add('dark');
+			}
+			// Check theme preference switch real time
+			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+				const newColorScheme = event.matches ? 'dark' : 'light';
+				if (newColorScheme == 'dark') {
+					page.classList.add('dark');
+				}
+				if (newColorScheme == 'light') {
+					page.classList.remove('dark');
+				} 
+			});
+			// Turn dark theme on
+			darkThemeLink.addEventListener('click', setDark);
+			function setDark(el) {
+				el.preventDefault();
+				page.classList.add('dark');
+				localStorage.setItem('vallek-animatable-css-theme', 'dark');
+			}
+			// Turn light theme on
+			lightThemeLink.addEventListener('click', setLight);
+			function setLight(el) {
+				el.preventDefault();
+				page.classList.remove('dark');
+				localStorage.setItem('vallek-animatable-css-theme', 'light');
+			}
+		</script>
 	</body>
 	</html>
 		`;
