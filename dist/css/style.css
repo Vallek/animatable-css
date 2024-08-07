@@ -34,6 +34,7 @@ h1 {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
+	gap: 1em;
 }
 
 .themes {
@@ -60,6 +61,7 @@ h1 {
 	order: 3;
 }
 
+/* Content */
 h2 {
 	font-size: 1.7em;
 	margin: 0;
