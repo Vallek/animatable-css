@@ -218,11 +218,11 @@ stream.once('open', async function() {
 				<p>The point of this page is to be fully automated without need for manual edits. It updates once a day. If you don't see any properties (this means build failed) or if you found any other problem please create an issue on <a href="https://github.com/Vallek/animatable-css">github</a>.</p>
 				<div class="header__footer">
 					<span>created by: <a href="https://github.com/Vallek">Vallek</a></span>
-					<span class="themes">
+					<div class="themes">
 						<h2 class="themes__text visually-hidden">Change Color Theme</h2>
 						<a class="themes__theme themes__theme_light" href="#">Light Theme</a>
 						<a class="themes__theme themes__theme_dark" href="#">Dark Theme</a>
-					</span>
+					</div>
 				</div>
 			</div>
 			<h2>Syntax, how to use:</h2>
