@@ -209,6 +209,17 @@ stream.once('open', async function() {
 			</script>
 		</head>
 		<body class="page">
+			<script>
+				const thisPage = document.querySelector('.page');
+				// Check if user set dark theme before
+				if (localStorage.getItem('vallek-animatable-css-theme') == 'dark') {
+					thisPage.classList.add('dark');
+				}
+				// Check if user prefers dark theme
+				if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+					thisPage.classList.add('dark');
+				}
+			</script>
 		<main class="page__main">
 			<h1 class="page__title">Animatable and not animatable CSS properties</h1>
 			<div class="page__notes">
@@ -295,14 +306,6 @@ stream.once('open', async function() {
 			const page = document.querySelector('.page');
 			const lightThemeLink = document.querySelector('.themes__theme_light');
 			const darkThemeLink = document.querySelector('.themes__theme_dark');
-			// Check if user set dark theme before
-			if (localStorage.getItem('vallek-animatable-css-theme') == 'dark') {
-				page.classList.add('dark');
-			}
-			// Check if user prefers dark theme
-			if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-				page.classList.add('dark');
-			}
 			// Check theme preference switch real time
 			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
 				const newColorScheme = event.matches ? 'dark' : 'light';
