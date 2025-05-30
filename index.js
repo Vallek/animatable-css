@@ -205,7 +205,10 @@ stream.once('open', async function() {
 				window.dataLayer = window.dataLayer || [];
 				function gtag(){dataLayer.push(arguments);}
 				gtag('js', new Date());
-				gtag('config', 'G-LCWJ9R5X3T');
+				gtag('config', 'G-LCWJ9R5X3T', {
+					cookie_domain: 'vallek.github.io',
+					cookie_flags: 'SameSite=None;Secure',
+				} );
 			</script>
 		</head>
 		<body class="page">
