@@ -292,8 +292,8 @@ stream.once('open', async function() {
 			<section class="page__section" id="other">
 				<h2><a href="#other">Other cases</a></h2>
 				<div class="section__notes">
-					<p>This is a list of everything else from api that didn't fit main lists. It happens if there is no animation type so api returns <code>undefined</code>. For example <code>z-index</code>. It has no animation type in specs. But in reality it's <code>discrete</code> (also called<code>an integer</code> on MDN).
-					<p>There are also some other properties that are duplicates from different specs or with -webkit prefix that already are in main lists. They are filtered out automatically. If you noticed something is missing please create an issue on <a href="https://github.com/Vallek/animatable-css">github</a>.</p>
+					<p>This is a list of everything else from api that didn't fit main lists. It happens if there is no animation type so api returns <code>undefined</code>.
+					<p>There are also some other properties that are duplicates from different specs or with <code>-webkit</code> prefix that already are in main lists. They are filtered out automatically. If you noticed something is missing please create an issue on <a href="https://github.com/Vallek/animatable-css/issues">github</a>.</p>
 				</div>
 				<div class="lists other">${otherHtml}</div>
 			</section>
