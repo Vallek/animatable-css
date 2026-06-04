@@ -10,6 +10,6 @@ The point of this page is to be fully automated without need for manual edits. I
 
 I didn't want to put too much strain on API or client side. So I decided to generate a static html once a day on timer. It's done with Github Actions.
 
-If you have any suggestions please contact me or make a Pull Request.
+If you have any suggestions please create an Issue.
 
 [How to use](https://vallek.github.io/webdevtips/en/build-static-node-github-actions) this method of building page yourself.
