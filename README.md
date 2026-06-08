@@ -13,3 +13,5 @@ I didn't want to put too much strain on API or client side. So I decided to gene
 If you have any suggestions please create an Issue.
 
 [How to use](https://vallek.github.io/webdevtips/en/build-static-node-github-actions) this method of building page yourself.
+
+You can also [support me on boosty](https://boosty.to/vallek).

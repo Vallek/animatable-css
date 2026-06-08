@@ -299,6 +299,7 @@ stream.once('open', async function() {
 			</section>
 			<section class="footer">
 				<span>Created by: <a href="https://github.com/Vallek">Vallek</a> using W3C API, Node.js and Github Actions, 2023—<span class="current-year">${date.getFullYear()}</span></span>
+				<p>Support me on <a href="https://boosty.to/vallek">boosty</a></p>
 				<p>CSS Icon from <a href="https://commons.wikimedia.org/wiki/File:CSS3_logo_and_wordmark.svg">Wiki under Creative Commons</a></p>
 			</section>
 		</main>
